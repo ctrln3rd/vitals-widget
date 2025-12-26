@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <enum id="org.gnome.shell.extensions.vitalswidget.Orientation">
+    <value nick="horizontal" value="0"/>
+    <value nick="vertical" value="1"/>
+  </enum>
+
+  <schema id="org.gnome.shell.extensions.vitalswidget" path="/org/gnome/shell/extensions/vitalswidget/">
+    <key name="position-x" type="d"><default>85</default></key>
+    <key name="position-y" type="d"><default>50</default></key>
+
+    <key name="background-color" type="s"><default>'rgba(0, 0, 0, 0.8)'</default></key>
+    <key name="border-color" type="s"><default>'rgba(255, 255, 255, 0.2)'</default></key>
+    <key name="border-radius" type="i"><default>12</default></key>
+    <key name="vital-spacing" type="i"><default>12</default></key>
+    <key name="padding-horizontal" type="i"><default>16</default></key>
+    <key name="padding-vertical" type="i"><default>12</default></key>
+    <key name="orientation" enum="org.gnome.shell.extensions.vitalswidget.Orientation"><default>'horizontal'</default></key>
+    <key name="vital-orientation" enum="org.gnome.shell.extensions.vitalswidget.Orientation">
+    <default>'vertical'</default>
+    <summary>Orientation of internal vital elements (Icon/Label)</summary>
+    </key>
+
+    <key name="show-icons" type="b"><default>true</default></key>
+    <key name="show-labels" type="b">
+      <default>true</default>
+      <summary>Show text labels</summary>
+    </key> 
+    <key name="label-font-size" type="i">
+      <default>11</default>
+      <summary>Font size of the labels in pixels</summary>
+    </key>
+    <key name="icon-color" type="s"><default>'rgba(255, 255, 255, 0.9)'</default></key>
+
+    <key name="show-cpu" type="b"><default>true</default></key>
+    <key name="show-ram" type="b"><default>true</default></key>
+    <key name="show-storage" type="b"><default>true</default></key>
+    <key name="show-temp" type="b"><default>true</default></key>
+    <key name="show-gpu" type="b"><default>true</default></key>
+
+    <key name="cpu-color" type="s"><default>'#3498db'</default></key>
+    <key name="ram-color" type="s"><default>'#2ecc71'</default></key>
+    <key name="storage-color" type="s"><default>'#f39c12'</default></key>
+    <key name="temp-color" type="s"><default>'#e74c3c'</default></key>
+    <key name="gpu-color" type="s"><default>'#9b59b6'</default></key>
+
+    <key name="cpu-update-interval" type="i"><default>2000</default></key>
+    <key name="ram-update-interval" type="i"><default>2000</default></key>
+    <key name="storage-update-interval" type="i"><default>60000</default></key>
+    <key name="temp-update-interval" type="i"><default>5000</default></key>
+    <key name="gpu-update-interval" type="i"><default>2000</default></key>
+
+    <key name="ring-diameter" type="i"><default>64</default></key>
+    <key name="ring-width" type="i"><default>4</default></key>
+    <key name="inactive-ring-color" type="s">
+    <default>'rgba(255, 255, 255, 0.1)'</default>
+    <summary>Color of the progress ring track</summary>
+    </key>
+    <key name="extension-path" type="s"><default>''</default></key>
+  </schema>
+</schemalist>

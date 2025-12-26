@@ -1,0 +1,251 @@
+# VitalsWidget - GNOME Shell Desktop Widget
+
+A beautiful, modern desktop widget for GNOME Shell that displays system vitals (CPU, RAM, Storage, Temperature, and GPU) as elegant circular progress indicators that float on your desktop.
+
+## Features
+
+- **Real-time Monitoring**: Track CPU, RAM, Storage, Temperature, and GPU usage
+- **Circular Design**: Beautiful circular progress rings with icons inside, inspired by modern UI design
+- **Desktop Widget**: Floats on your desktop, not in the panel - position anywhere you want
+- **Fully Draggable**: Click and drag to reposition the widget on your screen
+- **Customizable Appearance**: 
+  - Adjust colors for each vital's progress ring
+  - Change background, border colors and radius
+  - Configure icon and label visibility
+  - Set custom spacing between vitals
+  - Adjustable circle diameter and ring width
+- **Flexible Positioning**:
+  - Position widget anywhere on screen using X% and Y% coordinates
+  - Drag widget to new position (automatically saves)
+  - Settings for precise percentage-based positioning
+- **Clean Modern UI**: SVG icons centered inside circular progress rings
+
+## Requirements
+
+- GNOME Shell 45, 46, or 47
+- TypeScript 5.3+
+- Node.js 18+ (for development)
+
+### Optional for GPU monitoring:
+- `nvidia-smi` for NVIDIA GPUs
+- `radeontop` for AMD GPUs
+
+## Installation
+
+### From Source
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/vitals-widget.git
+cd vitals-widget
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Build and install:
+```bash
+make install
+```
+
+4. Enable the extension:
+```bash
+gnome-extensions enable vitalswidget@ctrln3rd.vercel.app
+```
+
+5. Restart GNOME Shell:
+- X11: Press `Alt+F2`, type `r`, press Enter
+- Wayland: Log out and log back in
+
+## Development
+
+### Project Structure
+
+```
+vitals-widget/
+├── src/
+│   ├── extension.ts       # Main extension entry point
+│   ├── vitals.ts          # Individual vital components
+│   ├── config.ts          # Configuration types
+│   ├── progress.ts        # Progress bar component
+│   ├── prefs.ts           # Preferences UI
+│   ├── ambient.d.ts       # Type declarations
+│   └── sensors/
+│       ├── cpu.ts         # CPU sensor
+│       ├── ram.ts         # RAM sensor
+│       ├── storage.ts     # Storage sensor
+│       ├── temp.ts        # Temperature sensor
+│       └── gpu.ts         # GPU sensor
+├── svg/                   # Icon assets
+│   ├── cpu.svg
+│   ├── ram.svg
+│   ├── storage.svg
+│   ├── temp.svg
+│   └── gpu.svg
+├── schemas/               # GSettings schema
+├── metadata.json          # Extension metadata
+├── stylesheet.css         # Styles
+├── tsconfig.json          # TypeScript config
+├── package.json           # Node dependencies
+└── Makefile              # Build automation
+```
+
+### Available Make Commands
+
+```bash
+make install       # Compile and install extension
+make nested        # Launch nested GNOME Shell for testing
+make test          # Run tests with GJS
+make logs          # View extension logs
+make clean         # Clean build artifacts
+make remove        # Uninstall extension
+make dev           # Clean, rebuild, and launch nested shell
+```
+
+### Testing in Nested Shell
+
+For safer development without affecting your main session:
+
+```bash
+make nested
+```
+
+This launches a nested Wayland session where you can test changes.
+
+### Watching for Changes
+
+During development, keep TypeScript compiler running:
+
+```bash
+npm run watch
+```
+
+Then use `make install` to deploy changes.
+
+### Running Tests
+
+```bash
+# Run all tests
+make test
+
+# Run specific test
+make test FILE=tests/sensor_test.js
+```
+
+## Configuration
+
+Access settings via:
+- GNOME Extensions app → VitalsWidget → Settings
+- Command line: `gnome-extensions prefs vitalswidget@ctrln3rd.vercel.app`
+
+### Available Settings
+
+**General**
+- Horizontal position (0-100%)
+- Vertical position (0-100%)
+- Background color
+- Border color and radius
+- Vital spacing
+
+**Display Options**
+- Show/hide icons (inside circles)
+- Show/hide labels (below circles)
+- Icon color
+
+**Circle Settings**
+- Circle diameter (40-120px)
+- Ring width (2-12px)
+
+**Vitals**
+- Enable/disable each vital (CPU, RAM, Storage, Temp, GPU)
+- Custom ring color per vital
+
+## Creating SVG Icons
+
+Place SVG icons in the `svg/` directory. Icons should:
+- Be 16x16px or scalable
+- Use simple paths for clarity
+- Use `currentColor` for fill/stroke (colors are set dynamically)
+- Be centered for proper display inside circles
+
+Example structure:
+```xml
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <path d="M..." fill="currentColor"/>
+</svg>
+```
+
+## Troubleshooting
+
+### Extension not showing
+
+1. Check if enabled:
+```bash
+gnome-extensions list --enabled | grep vitalswidget
+```
+
+2. View logs:
+```bash
+make logs
+```
+
+3. Check for TypeScript errors:
+```bash
+npm run compile
+```
+
+### GPU stats not showing
+
+- Install `nvidia-smi` (NVIDIA) or `radeontop` (AMD)
+- Verify command availability: `which nvidia-smi`
+
+### Temperature not reading
+
+The extension searches for thermal zones automatically. If not working:
+- Check `/sys/class/thermal/` for available zones
+- Verify permissions on thermal files
+
+## Contributing
+
+Contributions are welcome! Please:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes with clear commit messages
+4. Test thoroughly using `make nested`
+5. Submit a pull request
+
+### Code Style
+
+- Use TypeScript strict mode
+- Follow existing patterns for consistency
+- Add comments for complex logic
+- Run linter before submitting: `npm run lint`
+
+## License
+
+GPL-3.0 License - see LICENSE file for details
+
+## Credits
+
+Created by ctrln3rd
+
+Inspired by other GNOME Shell system monitor extensions.
+
+## Support
+
+- Report issues: [GitHub Issues](https://github.com/yourusername/vitals-widget/issues)
+- Discussions: [GitHub Discussions](https://github.com/yourusername/vitals-widget/discussions)
+
+## Changelog
+
+### v1.0.0
+- Initial release
+- Desktop widget (not panel-based)
+- Circular progress indicators with icons inside
+- Support for CPU, RAM, Storage, Temperature, GPU monitoring
+- Draggable widget with percentage-based positioning
+- Fully customizable appearance
+- Comprehensive settings UI

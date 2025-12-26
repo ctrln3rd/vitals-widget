@@ -1,0 +1,9 @@
+{
+  "uuid": "vitalsWidget@ctrln3rd.vercel.app",
+  "name": "vitals widget",
+  "description": "View your ram usage, cpu usage on your desktop",
+  "shell-version": ["45", "46", "47", "48", "49"],
+  "url": "https://ctrln3rd.vercel.app",
+  "version" : 1,
+  "settings-schema": "org.gnome.shell.extensions.vitalswidget"
+}
