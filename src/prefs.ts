@@ -101,7 +101,7 @@ export default class VitalsWidgetPreferences extends ExtensionPreferences {
         this._addSpinRow(ringsGroup, settings, 'ring-diameter', 'Ring Diameter', 20, 200);
         this._addSpinRow(ringsGroup, settings, 'ring-width', 'Ring Thickness', 1, 20);
         this._addColorRow(ringsGroup, settings, 'inactive-ring-color', 'Inactive Ring Color');
-        this._addColorRow(ringsGroup, settings, 'icon-color', 'Global Icon Color');
+        this._addColorRow(ringsGroup, settings, 'icon-color', 'Icon and Label Color');
 
         // --- VITALS PAGE ---
         const vitalsPage = new Adw.PreferencesPage({
