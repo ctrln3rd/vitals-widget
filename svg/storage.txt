@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-  <ellipse cx="8" cy="4" rx="5" ry="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-  <path d="M 3 4 L 3 12 C 3 13.1 5.2 14 8 14 C 10.8 14 13 13.1 13 12 L 13 4" fill="none" stroke="currentColor" stroke-width="1.5"/>
-  <ellipse cx="8" cy="8" rx="5" ry="1.5" fill="none" stroke="currentColor" stroke-width="1"/>
-  <ellipse cx="8" cy="12" rx="5" ry="2" fill="currentColor" opacity="0.3"/>
-  <circle cx="11" cy="6" r="0.8" fill="currentColor"/>
-  <circle cx="11" cy="10" r="0.8" fill="currentColor"/>
-</svg>

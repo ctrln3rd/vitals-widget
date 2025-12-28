@@ -7,7 +7,6 @@ A beautiful, modern desktop widget for GNOME Shell that displays system vitals (
 - **Real-time Monitoring**: Track CPU, RAM, Storage, Temperature, and GPU usage
 - **Circular Design**: Beautiful circular progress rings with icons inside, inspired by modern UI design
 - **Desktop Widget**: Floats on your desktop, not in the panel - position anywhere you want
-- **Fully Draggable**: Click and drag to reposition the widget on your screen
 - **Customizable Appearance**: 
   - Adjust colors for each vital's progress ring
   - Change background, border colors and radius
@@ -22,7 +21,7 @@ A beautiful, modern desktop widget for GNOME Shell that displays system vitals (
 
 ## Requirements
 
-- GNOME Shell 45, 46, or 47
+- GNOME Shell 45, 46, 47, 48 or 49
 - TypeScript 5.3+
 - Node.js 18+ (for development)
 
@@ -36,7 +35,7 @@ A beautiful, modern desktop widget for GNOME Shell that displays system vitals (
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/vitals-widget.git
+git clone https://github.com/ctrln3rd/vitals-widget.git
 cd vitals-widget
 ```
 
@@ -52,7 +51,7 @@ make install
 
 4. Enable the extension:
 ```bash
-gnome-extensions enable vitalswidget@ctrln3rd.vercel.app
+gnome-extensions enable vitalswidget@ctrln3rd.github.com
 ```
 
 5. Restart GNOME Shell:
@@ -71,19 +70,14 @@ vitals-widget/
 │   ├── config.ts          # Configuration types
 │   ├── progress.ts        # Progress bar component
 │   ├── prefs.ts           # Preferences UI
-│   ├── ambient.d.ts       # Type declarations
+│   ├── icons.ts           # Icons Svgs 
 │   └── sensors/
 │       ├── cpu.ts         # CPU sensor
 │       ├── ram.ts         # RAM sensor
 │       ├── storage.ts     # Storage sensor
 │       ├── temp.ts        # Temperature sensor
 │       └── gpu.ts         # GPU sensor
-├── svg/                   # Icon assets
-│   ├── cpu.svg
-│   ├── ram.svg
-│   ├── storage.svg
-│   ├── temp.svg
-│   └── gpu.svg
+| 
 ├── schemas/               # GSettings schema
 ├── metadata.json          # Extension metadata
 ├── stylesheet.css         # Styles
@@ -236,8 +230,8 @@ Inspired by other GNOME Shell system monitor extensions.
 
 ## Support
 
-- Report issues: [GitHub Issues](https://github.com/yourusername/vitals-widget/issues)
-- Discussions: [GitHub Discussions](https://github.com/yourusername/vitals-widget/discussions)
+- Report issues: [GitHub Issues](https://github.com/ctrln3rd/vitals-widget/issues)
+- Discussions: [GitHub Discussions](https://github.com/ctrln3rd/vitals-widget/discussions)
 
 ## Changelog
 
