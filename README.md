@@ -32,4 +32,4 @@ npm install
 make install
 
 # 4. Enable the extension
-gnome-extensions enable vitalswidget@ctrln3rd.github.com
+gnome-extensions enable vitalsWidget@ctrln3rd.github.com

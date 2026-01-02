@@ -1,5 +1,6 @@
-import GLib from 'gi://GLib';
 import Gio from 'gi://Gio';
+
+Gio._promisify(Gio.File.prototype, "load_contents_async", "load_contents_finish");
 
 export class CPUSensor {
     private _lastTotal: number = 0;

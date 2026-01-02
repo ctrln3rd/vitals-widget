@@ -63,7 +63,7 @@ class VitalItem extends St.BoxLayout {
 
         if (this._settings.get_boolean('show-labels')) {
             this._label = new St.Label({
-                text: '0%',
+                text: '',
                 style_class: 'vital-label',
                 x_align: Clutter.ActorAlign.CENTER,
             });
