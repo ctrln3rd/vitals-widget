@@ -1,11 +1,14 @@
 import Gio from "gi://Gio";
 
+Gio._promisify(Gio.Subprocess.prototype, "communicate_utf8_async", "communicate_utf8_finish");
+
 export class StorageSensor {
   async getValue(): Promise<number> {
     try {
       // Async subprocess for df command
+      const path = "/";
       const proc = Gio.Subprocess.new(
-        ["df", "/"],
+        ["df", path],
         Gio.SubprocessFlags.STDOUT_PIPE
       );
       const [stdout] = await proc.communicate_utf8_async(null, null);
